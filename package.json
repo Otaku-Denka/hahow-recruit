@@ -1,22 +1,30 @@
 {
-  "name": "with-typescript",
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "type-check": "tsc"
-  },
-  "dependencies": {
-    "next": "^9.0.3",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
-  },
-  "devDependencies": {
-    "@types/node": "^11.13.9",
-    "@types/react": "^16.8.15",
-    "@types/react-dom": "^16.0.11",
-    "typescript": "3.5.2"
-  },
-  "license": "ISC"
+    "name": "with-typescript",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "start": "next start",
+        "type-check": "tsc",
+        "commit": "npx git-cz"
+    },
+    "dependencies": {
+        "next": "^9.0.3",
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0"
+    },
+    "devDependencies": {
+        "@types/node": "^11.13.9",
+        "@types/react": "^16.8.15",
+        "@types/react-dom": "^16.0.11",
+        "commitizen": "^4.0.3",
+        "tslint": "^5.18.0",
+        "tslint-config-airbnb": "^5.11.1",
+        "tslint-config-prettier": "^1.18.0",
+        "tslint-eslint-rules": "^5.4.0",
+        "tslint-react": "^4.0.0",
+        "tslint-react-hooks": "^2.2.1",
+        "typescript": "3.5.2"
+    },
+    "license": "ISC"
 }
