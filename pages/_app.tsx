@@ -4,12 +4,8 @@ import { ThemeProvider } from 'styled-components';
 import { NextComponentType } from 'next';
 import withReduxStore from '../utils/with-redux-store';
 import { Provider } from 'react-redux';
-
-const theme = {
-  colors: {
-    primary: '#FF70f3',
-  },
-};
+import theme from '../theme/default';
+import Layout from '../components/layout/layout';
 
 interface AppProps {
   Component: NextComponentType;
@@ -33,7 +29,9 @@ class MyApp extends App<AppProps> {
     return (
       <Provider store={reduxStore}>
         <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </ThemeProvider>
       </Provider>
     );
