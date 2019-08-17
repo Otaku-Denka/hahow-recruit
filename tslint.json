@@ -1,7 +1,7 @@
 {
   "defaultSeverity": "error",
   "linterOptions": {
-    "exclude": ["node_modules/**/*.ts?(x)"]
+    "exclude": ["node_modules/**/*.ts?(x)", "**/*.json"]
   },
   "extends": [
     "tslint:recommended",
@@ -30,6 +30,7 @@
     "no-submodule-imports": false,
     "variable-name": false,
     "semicolon": [false],
+    "no-implicit-dependencies": [true, "dev"],
     "function-name": [
       true,
       {

@@ -2,6 +2,8 @@ import App from 'next/app';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { NextComponentType } from 'next';
+import withReduxStore from '../utils/with-redux-store';
+import { Provider } from 'react-redux';
 
 const theme = {
   colors: {
@@ -12,6 +14,7 @@ const theme = {
 interface AppProps {
   Component: NextComponentType;
   pageProps?: any;
+  reduxStore: any;
 }
 
 class MyApp extends App<AppProps> {
@@ -26,13 +29,15 @@ class MyApp extends App<AppProps> {
     };
   }
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, reduxStore } = this.props;
     return (
-      <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <Provider store={reduxStore}>
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </Provider>
     );
   }
 }
 
-export default MyApp;
+export default withReduxStore(MyApp);
