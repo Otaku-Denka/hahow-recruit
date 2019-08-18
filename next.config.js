@@ -1,5 +1,7 @@
 const withCss = require('@zeit/next-css');
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
+const webpack = require('webpack');
+const path = require('path');
 
 module.exports = withBundleAnalyzer(
   withCss({
@@ -24,6 +26,18 @@ module.exports = withBundleAnalyzer(
           use: 'null-loader',
         });
       }
+      config.resolve = {
+        ...config.resolve,
+        alias: {
+          ...config.resolve.alias,
+          '@ant-design/icons/lib/dist$': path.resolve(
+            __dirname,
+            'utils/antd-icons.js',
+          ),
+        },
+      };
+      config.plugins.push(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/));
+
       return config;
     },
     analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
