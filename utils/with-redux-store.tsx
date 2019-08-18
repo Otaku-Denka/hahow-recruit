@@ -1,6 +1,7 @@
 import React from 'react';
 import { initStore } from '../redux/store';
-
+import { NextPageContext } from 'next';
+import { Store } from 'redux';
 declare var window: {
   [key: string]: any;
   prototype: Window;
@@ -25,23 +26,10 @@ function getOrCreateStore(initialState: any = {}) {
 
 export default (Comp: any) => {
   class WithReduxApp extends React.Component<any> {
-    static async getInitialProps(ctx: any) {
+    static async getInitialProps(ctx: NextPageContext) {
       let reduxStore;
 
-      if (isServer) {
-        const { req } = ctx.ctx;
-        const session = req.session;
-
-        if (session && session.userInfo) {
-          reduxStore = getOrCreateStore({
-            user: { data: { ...session.userInfo, ...session.githubAuth } },
-          });
-        } else {
-          reduxStore = getOrCreateStore();
-        }
-      } else {
-        reduxStore = getOrCreateStore();
-      }
+      reduxStore = getOrCreateStore();
 
       ctx.reduxStore = reduxStore;
 
@@ -55,7 +43,7 @@ export default (Comp: any) => {
         initialReduxState: reduxStore.getState(),
       };
     }
-    reduxStore: any;
+    reduxStore: Store;
     constructor(props: any) {
       super(props);
       this.reduxStore = getOrCreateStore(props.initialReduxState);

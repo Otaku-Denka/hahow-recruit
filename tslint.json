@@ -31,6 +31,7 @@
     "variable-name": false,
     "semicolon": [false],
     "no-implicit-dependencies": [true, "dev"],
+    "no-empty-interface": false,
     "function-name": [
       true,
       {
