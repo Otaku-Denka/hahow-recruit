@@ -19,3 +19,5 @@ server up on http://localhost:3000
 - typescript - 型別定義
 - koa - 使用 koa-router 製作動態路由，nextjs 本身未支援 params 路由
 - tslint - 依照 airbnb 編碼規範，提高程式碼品質
+- redux - 管理公用 state 和數據
+- redux-thunk - 使用 thunk 完成異步 action
