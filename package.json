@@ -6,7 +6,8 @@
         "build": "next build && tsc --project tsconfig.server.json",
         "start": "cross-env NODE_ENV=production node dist/index.js",
         "type-check": "tsc",
-        "commit": "npx git-cz"
+        "commit": "npx git-cz",
+        "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
     },
     "dependencies": {
         "@zeit/next-css": "^1.0.1",
@@ -32,6 +33,7 @@
         "@types/react-redux": "^7.1.2",
         "@types/redux-devtools-extension": "^2.13.2",
         "@types/styled-components": "^4.1.18",
+        "@zeit/next-bundle-analyzer": "^0.1.2",
         "babel-plugin-import": "^1.12.0",
         "babel-plugin-styled-components": "^1.10.6",
         "commitizen": "^4.0.3",
